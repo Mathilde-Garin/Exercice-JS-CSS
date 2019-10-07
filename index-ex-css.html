@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>TP JS</title>
+
+</head>
+
+<body>
+	<ul id="liste"> 
+		<li>un</li>  
+		<li>deux</li>  
+		<li>trois</li>
+	</ul>
+
+	<button id="supprimer">Supprimer</button>
+	<button id="afficher">Afficher</button>
+
+<style type="text/css">
+	.selected {  
+	background-color: #88f;
+	}
+</style>
+
+
+<script type="text/javascript">
+	
+	$liste = document.getElementById("liste");
+
+
+// Fonction pour sélectionner
+
+	function selectionne(e) {  
+	// e.target correspond au <li> qui a été cliqué dans le <ul> !  
+		e.target.classList.toggle("selected");
+	}
+	
+	$liste.onclick = selectionne;
+
+
+// Fonction pour supprimer élément sélectionné
+
+	function supprimerElement() {
+
+		for (var i=0 ; i < $liste.children.length ; i++) {
+			if($liste.children[i].classList.contains("selected")) {
+			$liste.children[i].style.display = "none";
+			}
+		}
+	}
+
+	document.getElementById("supprimer").onclick = supprimerElement;
+
+
+// Fonction pour afficher élément effacé
+
+	function afficherElement() {
+		for (var i=0 ; i < $liste.children.length ; i++) {
+			if($liste.children[i].style.display = "none") {
+				$liste.children[i].style.display = "list-item";
+			}
+		}
+	}
+
+	document.getElementById("afficher").onclick = afficherElement;
+
+</script>
+
+
+</body>
+</html>
